@@ -1,26 +1,66 @@
 {
-  "name": "node",
+  "name": "koa2-ssr",
   "version": "1.0.0",
-  "description": "服务端渲染",
-  "author": "陈树阳 <243211565@qq.com>",
+  "description": "koa2 ssr",
+  "author": "chenshuy <243211565@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "cross-env NODE_ENV=production && nodemon build/www --mode development",
+    "start": "cross-env NODE_ENV=production && npm run build:prod && node config/prod.env.js",
+    "build:dev": "webpack --config webpack.config.js --mode development",
+    "build:prod": "webpack --config webpack.config.js --mode production --progress",
+    "nodemon": "nodemon build/www"
   },
   "dependencies": {
+    "@babel/runtime": "^7.0.0",
+    "art-template": "^4.13.0",
+    "axios": "^0.18.0",
+    "jquery": "^3.3.1",
     "koa": "^2.5.2",
+    "koa-art-template": "^1.1.1",
     "koa-bodyparser": "^4.2.1",
-    "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.0.0",
+    "art-template-loader": "^1.4.3",
+    "autoprefixer": "^9.1.5",
+    "babel-loader": "^8.0.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.0",
     "eslint": "^5.4.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-promise": "^4.0.0",
     "eslint-plugin-standard": "^4.0.0",
-    "nodemon": "^1.18.4"
-  }
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "html-withimg-loader": "^0.1.16",
+    "koa-logger": "^3.2.0",
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.2",
+    "nodemon": "^1.18.4",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.0",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.19.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-middleware": "^3.3.0",
+    "webpack-manifest-plugin": "^2.0.4",
+    "webpack-merge": "^4.1.4"
+  },
+  "engines": {
+    "node": ">= 7.6.0"
+  },
+  "browserslist": [
+    "> 5%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }
