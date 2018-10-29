@@ -1,47 +1,38 @@
 const path = require('path');
-const glob = require('glob');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
-    layout: './client/views/layout/index.js',
-    index: './client/views/index/index.js'
+    main: './client/views/main.js',
+    index: './client/views/index/index.js',
+    test: './client/views/test/index.js'
   },
   output: {
-    filename: 'js/[name].[chunkhash:8].js',
-    path: path.resolve('dist')
-  },
-  devServer: {
-    hot: true
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendors: {
-          name: 'vendors', // 打包第三方库
-          chunks: 'all'
-        }
-      }
-    }
+    path: path.resolve('dist'),
+    filename: 'js/[name].[chunkhash:4].js'
   },
   plugins: [
     new CleanWebpackPlugin('dist'),
     new MiniCssExtractPlugin({
-      filename: 'style/[name].[chunkhash:8].css'
+      filename: 'style/[name].[chunkhash:4].css'
     }),
-    // 公用模版页面，包含通用js
     new HtmlWebpackPlugin({
-      template: 'client/views/layout/index.html',
-      filename: 'layout/index.html',
-      chunks: ['vendors', 'layout', 'manifest']
+      template: 'client/views/base/footer.html',
+      filename: 'views/base/footer.html',
+      chunks: ['main']
     }),
     new HtmlWebpackPlugin({
       template: 'client/views/index/index.html',
-      filename: 'index/index.html',
+      filename: 'views/index.html',
       chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'client/views/test/index.html',
+      filename: 'views/test.html',
+      chunks: ['test']
     })
   ],
   module: {
@@ -70,7 +61,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 8192,
-          name: 'img/[name].[hash:8].[ext]'
+          name: 'img/[name].[hash:4].[ext]'
         }
       },
       {
@@ -80,22 +71,3 @@ module.exports = {
     ]
   }
 };
-
-// // 获取入口
-// function getViewsJs (path) {
-//   const files = glob.sync(path);
-//   const entry = {};
-//   files.forEach(item => {
-
-//   });
-// }
-
-// function getViewsHtml (path) {
-//   const files = glob.sync(path);
-//   const entry = {};
-//   files.forEach(item => {
-
-//   });
-// }
-
-// var obj = getViewsJs('client/views/**/*.js');

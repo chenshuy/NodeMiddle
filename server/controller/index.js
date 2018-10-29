@@ -9,5 +9,5 @@ module.exports = async (ctx) => {
     data.banner = res.data;
   });
   // 渲染页面
-  await ctx.render('index/index', data);
+  await ctx.render('index', data);
 };

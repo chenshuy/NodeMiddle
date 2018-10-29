@@ -1,1 +1,2 @@
-const b ='我的是index';
+
+console.log(1)

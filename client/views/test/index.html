@@ -1,11 +1,18 @@
-{{extend '../layout.html'}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{include '../base/head'}}
+  <title>{{title}}</title>
+</head>
+<body>
+  <!-- 头部 -->
+  {{include '../base/header'}}
 
-{{block 'title'}}
-  {{title}}
-{{/block}}
-
-{{block 'content'}}
-  <div class="index-wrap">
+  <div class="content">
     test
   </div>
-{{/block}}
+
+  <!-- 底部 -->
+  {{include '../base/footer'}}
+</body>
+</html>

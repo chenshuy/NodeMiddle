@@ -1,6 +1,6 @@
 const Router = require('koa-router');
-const index = require('../modules/index'); // 首页
-const test = require('../modules/test'); // 测试页面
+const index = require('../controller/index'); // 首页
+const test = require('../controller/test'); // 测试页面
 
 const router = new Router();
 

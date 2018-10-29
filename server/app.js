@@ -13,7 +13,7 @@ const env = process.env.NODE_ENV || 'development'; // 默认开发环境
 
 // 视图模版引擎
 render(app, {
-  root: path.join(__dirname, 'dist'),
+  root: path.join(__dirname, '../client/views'),
   extname: '.html',
   debug: env === 'development'
 });

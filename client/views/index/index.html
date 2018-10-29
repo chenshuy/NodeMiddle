@@ -1,6 +1,13 @@
-{{extend '../layout/index'}}
-{{block 'title'}}{{title}}{{/block}}
-{{block 'content'}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{include '../base/head'}}
+  <title>{{title}}</title>
+</head>
+<body>
+  <!-- 头部 -->
+  {{include '../base/header'}}
+
   <div class="index-wrap">
     <h1>我是首页</h1>
     <div class="layout">
@@ -16,5 +23,8 @@
     </ul>
   </div>
   <img src="../../img/banner.jpg" alt="">
-  <img src="../../img/icon.png" alt="">
-{{/block}}
+
+  <!-- 底部 -->
+  {{include '../base/footer'}}
+</body>
+</html>

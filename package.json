@@ -5,7 +5,7 @@
   "author": "chenshuy <243211565@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=production && nodemon build/www --mode development",
+    "dev": "cross-env NODE_ENV=development && nodemon build/www --mode development",
     "start": "cross-env NODE_ENV=production && npm run build:prod && node config/prod.env.js",
     "build:dev": "webpack --config webpack.config.js --mode development",
     "build:prod": "webpack --config webpack.config.js --mode production --progress",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
-    "art-template": "^4.13.0",
+    "art-template": "^4.13.1",
     "axios": "^0.18.0",
     "jquery": "^3.3.1",
     "koa": "^2.5.2",
@@ -26,18 +26,11 @@
     "@babel/core": "^7.0.1",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.0.0",
-    "art-template-loader": "^1.4.3",
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.2",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
-    "eslint": "^5.4.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-node": "^7.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^4.0.0",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "html-withimg-loader": "^0.1.16",
@@ -50,10 +43,7 @@
     "style-loader": "^0.23.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.19.0",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-middleware": "^3.3.0",
-    "webpack-manifest-plugin": "^2.0.4",
-    "webpack-merge": "^4.1.4"
+    "webpack-cli": "^3.1.0"
   },
   "engines": {
     "node": ">= 7.6.0"
