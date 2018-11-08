@@ -5,11 +5,10 @@
   "author": "chenshuy <243211565@qq.com>",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development && nodemon build/www --mode development",
-    "start": "cross-env NODE_ENV=production && npm run build:prod && node config/prod.env.js",
-    "build:dev": "webpack --config webpack.config.js --mode development",
-    "build:prod": "webpack --config webpack.config.js --mode production --progress",
-    "nodemon": "nodemon build/www"
+    "dev": "npm run build:dev && nodemon build/www",
+    "start": "npm run build:prod && node build/www",
+    "build:dev": "webpack --mode development",
+    "build:prod": "webpack --progress --mode production"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
@@ -28,12 +27,8 @@
     "@babel/preset-env": "^7.0.0",
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.2",
-    "clean-webpack-plugin": "^0.1.19",
-    "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "html-withimg-loader": "^0.1.16",
     "koa-logger": "^3.2.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",

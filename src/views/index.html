@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {{include '../base/head'}}
+  {{include './base/head'}}
   <title>{{title}}</title>
 </head>
 <body>
   <!-- 头部 -->
-  {{include '../base/header'}}
+  {{include './base/header'}}
 
   <div class="index-wrap">
     <h1>我是首页</h1>
@@ -22,9 +22,10 @@
         {{/each}}
     </ul>
   </div>
-  <img src="../../img/banner.jpg" alt="">
+  <img src="static/img/banner.jpg" alt="">
 
   <!-- 底部 -->
-  {{include '../base/footer'}}
+  {{include './base/footer'}}
+  <script src="static/js/index.js"></script>
 </body>
 </html>

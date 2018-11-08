@@ -1,38 +1,20 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   entry: {
-    main: './client/views/main.js',
-    index: './client/views/index/index.js',
-    test: './client/views/test/index.js'
+    main: './src/main.js',
+    index: './src/js/index.js',
+    test: './src/js/index.js'
   },
   output: {
-    path: path.resolve('dist'),
-    filename: 'js/[name].[chunkhash:4].js'
+    path: path.resolve('public/static'),
+    filename: 'js/[name].js'
   },
   plugins: [
-    new CleanWebpackPlugin('dist'),
     new MiniCssExtractPlugin({
-      filename: 'style/[name].[chunkhash:4].css'
-    }),
-    new HtmlWebpackPlugin({
-      template: 'client/views/base/footer.html',
-      filename: 'views/base/footer.html',
-      chunks: ['main']
-    }),
-    new HtmlWebpackPlugin({
-      template: 'client/views/index/index.html',
-      filename: 'views/index.html',
-      chunks: ['index']
-    }),
-    new HtmlWebpackPlugin({
-      template: 'client/views/test/index.html',
-      filename: 'views/test.html',
-      chunks: ['test']
+      filename: 'style/[name].css'
     })
   ],
   module: {
@@ -61,12 +43,8 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 8192,
-          name: 'img/[name].[hash:4].[ext]'
+          name: 'img/[name].[ext]'
         }
-      },
-      {
-        test: /\.(html)$/,
-        loader: 'html-withimg-loader?min=false'// min=false 禁用去除换行符
       }
     ]
   }
